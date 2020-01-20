@@ -1,32 +1,39 @@
-import React, { Component } from "react";
-import {
-    Route,
-    NavLink,
-    HashRouter
-} from "react-router-dom";
-import Home from "./Home";
-import Stuff from "./Stuff";
-import Contact from "./Contact";
+import React from "react";
+// import { Route, NavLink, HashRouter } from "react-router-dom";
+// import Home from "./Home";
+// import About from "./About";
+// import Contact from "./Contact";
+// import { tsConstructorType } from "@babel/types";
 
-class Main extends Component {
+
+class Main extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "Fiona Castillo",
+            headerLinks: [
+                { title: 'Home', path: "/" },
+                { title: 'About', path: "/About" },
+                { title: 'Contact', path: "/Contact" }
+            ],
+            home: {
+                title: "Be Bold, Think Differently",
+                subtitle: "My Journey through Tech",
+                text: "Check out my projects below"
+            },
+            about: {
+                title: "About Me"
+            },
+            contact: {
+                title: "Let's Talk"
+            }
+        }
+    }
+
     render() {
         return (
-            <HashRouter>
-                <div>
-                    <h1>Simple SPA</h1>
-                    <ul className="header">
-                        <li><NavLink exact to="/">Home</NavLink></li>
-                        <li><NavLink to="/stuff">Stuff</NavLink></li>
-                        <li><NavLink to="/contact">Contact</NavLink></li>
-                    </ul>
-                    <div className="content">
-                        <Route exact path="/" component={Home} />
-                        <Route path="/stuff" component={Stuff} />
-                        <Route path="/contact" component={Contact} />
-                    </div>
-                </div>
-            </HashRouter>
-
+            <div>Hello from React</div>
         );
     }
 }
